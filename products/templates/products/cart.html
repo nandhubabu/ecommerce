@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        {% for cart in cart_items %}
+        <div>
+            {{cart.prodect.name}}
+            {{cart.prodect.historic_price}}
+            {{cart.quantity}}
+        </div>
+        {%endfor%}
+    </div>
+</body>
+
+</html>
