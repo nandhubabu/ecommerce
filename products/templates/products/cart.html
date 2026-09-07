@@ -2,20 +2,43 @@
 <html lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
-    <div>
-        {% for cart in cart_items %}
-        <div>
-            {{cart.product.name}}
-            {{cart.historic_price}}
-            {{cart.quantity}}
+    <div class="container mt-5">
+        <h2>Your Shopping Cart 🛒</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>${{ item.historic_price }}</td>
+                    <td>
+                        <!-- We will add the + and - buttons here next! -->
+                        {{ item.quantity }}
+                    </td>
+                    <td>${{ item.subtotal }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="text-end mt-4">
+            <h4>Grand Total: ${{ order.grand_total }}</h4>
+            <button class="btn btn-success">Checkout</button>
         </div>
-        {%endfor%}
     </div>
 </body>
 

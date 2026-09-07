@@ -21,4 +21,4 @@ def add_to_cart(request, product_id):
 def cart_view(request):
     order, created = Order.objects.get_or_create(user=request.user)
     cart_items = OrderItem.objects.filter(order=order)
-    return render(request, 'products/cart.html', {'cart_items': cart_items})
+    return render(request, 'products/cart.html', {'cart_items': cart_items, 'order': order})
